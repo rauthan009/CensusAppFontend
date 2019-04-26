@@ -13,8 +13,8 @@ import { HomeComponent } from './home/home.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
-import { NotifierModule } from 'angular-notifier';
-// import {} from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,9 @@ import { NotifierModule } from 'angular-notifier';
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
-    NotifierModule
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
+
   ],
   providers: [UserService,AuthGuard,{
     provide: HTTP_INTERCEPTORS,

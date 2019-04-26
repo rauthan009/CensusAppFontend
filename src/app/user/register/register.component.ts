@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../Shared/user.model';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../../Shared/user.service';
-import { NotifierService } from 'angular-notifier'
+import { ToastrService } from 'ngx-toastr'
 
 @Component({
   selector: 'app-register',
@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
   user: User;
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
 
-  constructor(private userService:UserService,private notifierService : NotifierService) {
+  constructor(private userService:UserService,private toastr : ToastrService) {
 
    }
 
@@ -39,10 +39,11 @@ export class RegisterComponent implements OnInit {
     this.userService.registerUser(form.value).subscribe((data:any)=>{
       if(data.Succeeded == true) {
         this.resetForm(form);
-        this.notifierService.notify('success','User Succesfully registored');
+        this.toastr.success('User Succesfully Registered')
       }
       else {
-        this.notifierService.notify('error','data.Errors[0]');
+        this.toastr.error(data.Errors[0]);
+        console.log(data.Errors[0]);
       }
     });
   }

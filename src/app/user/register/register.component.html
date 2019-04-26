@@ -13,21 +13,21 @@
   </div>
   <div class="row">
     <div class="input-field col s6">
-      <input type="text" name="FirstName" #FirstName="ngModel" [(ngModel)]="user.FirstName">
+      <input type="text" name="FirstName" #FirstName="ngModel" [(ngModel)]="user.FirstName" required>
       <label>First Name</label>
     </div>
     <div class="input-field col s6">
-      <input type="text" name="LastName" #LastName="ngModel" [(ngModel)]="user.LastName">
+      <input type="text" name="LastName" #LastName="ngModel" [(ngModel)]="user.LastName" required>
       <label>Last Name</label>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s6">
-      <input type="text" name="ProfilePic" #ProfilePic="ngModel" [(ngModel)]="user.ProfilePic">
+      <input type="text" name="ProfilePic" #ProfilePic="ngModel" [(ngModel)]="user.ProfilePic" required>
       <label>ProfilePic</label>
     </div>
     <div class="input-field col s6">
-      <input type="number" name="AadharNumber" #AadharNumber="ngModel" [(ngModel)]="user.AadharNumber">
+      <input type="number" name="AadharNumber" #AadharNumber="ngModel" [(ngModel)]="user.AadharNumber" required>
       <label>AadharNumber</label>
     </div>
   </div>

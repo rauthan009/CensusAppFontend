@@ -1,0 +1,23 @@
+<nav>
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo">Census App</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a (click)="Logout()">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="row" *ngIf="UserClaims">
+  <div class="col s12 m7">
+    <div class="card">
+      <div class="card-content">
+        <span>Username: {{UserClaims.Email}} </span>
+        <br>
+        <span>Email : {{UserClaims.Email}}</span>
+        <br>
+        <span>Full Name : {{UserClaims.FirstName}} </span>
+        <br>
+        <span>Logged On :</span>
+      </div>
+    </div>
+  </div>
+</div>

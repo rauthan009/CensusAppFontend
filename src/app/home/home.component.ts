@@ -11,7 +11,6 @@ export class HomeComponent implements OnInit {
 
   UserClaims : any;
   constructor(private router:Router,private userservice:UserService) { }
-
   ngOnInit() {
     this.userservice.getUserClaims().subscribe((data:any)=> {
       this.UserClaims = data;
@@ -20,6 +19,11 @@ export class HomeComponent implements OnInit {
     (err:any)=>{
       console.log(err);
     });
+
+    if(this.userservice.roleMatch(['Approver']))
+    {
+      
+    }
   }
 
   Logout() {

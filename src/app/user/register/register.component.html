@@ -2,7 +2,7 @@
   <div class="row">
     <div class="input-field col s6">
       <input class="validate" type="email" name="Email" #Email="ngModel" [(ngModel)]="user.Email" required>
-      <label data-error="Required field!">Email</label>
+      <label data-error="Required field" >Email</label>
     </div>
     <div class="input-field col s6">
       <input class="validate" type="password" name="Password" #Password="ngModel" [(ngModel)]="user.Password" required
@@ -14,7 +14,7 @@
   <div class="row">
     <div class="input-field col s6">
       <input type="text" name="FirstName" #FirstName="ngModel" [(ngModel)]="user.FirstName" required>
-      <label>First Name</label>
+      <label data-error="Required field">First Name</label>
     </div>
     <div class="input-field col s6">
       <input type="text" name="LastName" #LastName="ngModel" [(ngModel)]="user.LastName" required>
@@ -26,6 +26,15 @@
       <input type="text" name="ProfilePic" #ProfilePic="ngModel" [(ngModel)]="user.ProfilePic" required>
       <label>ProfilePic</label>
     </div>
+    <!-- <div class="file-field input-field col s6">
+      <div class="btn">
+        <span>File</span>
+        <input type="file">
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div> -->
     <div class="input-field col s6">
       <input type="number" name="AadharNumber" #AadharNumber="ngModel" [(ngModel)]="user.AadharNumber" required>
       <label>AadharNumber</label>
@@ -33,7 +42,7 @@
   </div>
   <div class="row">
     <div class="input-field col s12">
-      <button [disabled]="!userRegistrationForm.valid" class="btn-large btn-submit" type="submit">Submit</button>
+      <button [disabled]="!userRegistrationForm.valid" class="waves-effect waves-light submitBtn btn btn-large" type="submit">Submit</button>
     </div>
   </div>
 </form>

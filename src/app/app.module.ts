@@ -15,6 +15,11 @@ import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ApproverPanelComponent } from './approver-panel/approver-panel.component';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { DeclinedReqComponent } from './home/declined-req/declined-req.component';
+import { ApprovedReqComponent } from './home/approved-req/approved-req.component';
+import { PendingReqComponent } from './home/pending-req/pending-req.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +27,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RegisterComponent,
     UserComponent,
     HomeComponent,
-    SignInComponent
+    SignInComponent,
+    ApproverPanelComponent,
+    ForbiddenComponent,
+    DeclinedReqComponent,
+    ApprovedReqComponent,
+    PendingReqComponent
   ],
   imports: [
     BrowserModule,

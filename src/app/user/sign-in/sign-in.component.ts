@@ -18,7 +18,12 @@ export class SignInComponent implements OnInit {
   OnSubmit(Email,Password) {
     this.userService.userAuthentication(Email,Password).subscribe((data:any)=>{
       localStorage.setItem('userToken',data.access_token);
-      this.router.navigate(['/home']);  
+      localStorage.setItem('userRoles',data.role);
+      var match = this.userService.roleMatch(["Approver"]);
+      if(match)
+      {           this.router.navigate(['/home']);
+          }else
+        this.router.navigate(['/forbidden']) ; 
     },(err:HttpErrorResponse)=>{
       this.isLoginError = true;
     });

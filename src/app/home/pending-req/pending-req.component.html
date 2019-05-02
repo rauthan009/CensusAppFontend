@@ -1,3 +1,19 @@
-<p>
-  pending-req works!
-</p>
+<div class="row card" *ngFor="let item of volunteerData" >
+  <div class="col s4">
+    <div class="card-image">
+      <img src="../../../assets/img/403.png">{{item.ProfilePic}}
+      <span class="card-title" >{{item.Name}}</span>
+    </div>
+  </div>
+  <div class="col s4">
+    <p>Email: {{item.Email}}</p>
+  </div>
+  <div class="col s4">
+    <div class="flexcontainer">
+      <button class="btn" (click)="approveVolunteer(item.UserId)">approve</button>
+      <button class="btn" (click)="declineVolunteer(item.UserId)">Decline</button>
+    </div>
+  </div>
+</div>
+
+         

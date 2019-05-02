@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/Shared/user.service';
 
 @Component({
   selector: 'app-approved-req',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApprovedReqComponent implements OnInit {
 
-  constructor() { }
-
+  volunteerData:any;
+  constructor(private userService:UserService) { }
+  loadDeclinedComponent() {
+    this.userService.GetApproved().subscribe((data:any) =>{
+      console.log(data);
+      this.volunteerData = data;
+    },
+    (err:any)=>{
+      console.log(err);
+    });
+  }
   ngOnInit() {
+    this.loadDeclinedComponent();
   }
 
 }

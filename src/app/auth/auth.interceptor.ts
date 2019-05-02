@@ -21,7 +21,7 @@ export class AuthInterceptor implements HttpInterceptor {
                 .pipe(tap(
                     succ=> {},
                     err => {
-                        debugger;
+                        console.log(err.error.ExceptionMessage);
                         if(err.status===401)
                         this.router.navigateByUrl('/Login');
                         else (err.status === 403)

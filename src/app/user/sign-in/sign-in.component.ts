@@ -19,11 +19,14 @@ export class SignInComponent implements OnInit {
     this.userService.userAuthentication(Email,Password).subscribe((data:any)=>{
       localStorage.setItem('userToken',data.access_token);
       localStorage.setItem('userRoles',data.role);
-      var match = this.userService.roleMatch(["Approver"]);
-      if(match)
-      {           this.router.navigate(['/home']);
-          }else
-        this.router.navigate(['/forbidden']) ; 
+      // var match = this.userService.roleMatch(["Approver"]);
+      if(this.userService.roleMatch(["Approver"]))
+      {           this.router.navigate(['/ApproverHome/pendingRequests']);
+      }
+      else if(this.userService.roleMatch(["Volunteer"]))
+        this.router.navigate(['/Dashboard/HouseListing']) ; 
+      else
+        this.router.navigate(['/forbidden']);
     },(err:HttpErrorResponse)=>{
       this.isLoginError = true;
     });

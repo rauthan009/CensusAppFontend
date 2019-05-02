@@ -1,0 +1,7 @@
+.flexcontainer {
+    display: flex;
+    margin:auto 0;
+}
+.flexcontainer > button {
+    flex:1;
+}

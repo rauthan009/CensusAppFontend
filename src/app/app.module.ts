@@ -20,6 +20,9 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { DeclinedReqComponent } from './home/declined-req/declined-req.component';
 import { ApprovedReqComponent } from './home/approved-req/approved-req.component';
 import { PendingReqComponent } from './home/pending-req/pending-req.component';
+import { VolunteerHomeComponent } from './volunteer-home/volunteer-home.component';
+import { HouseListingComponent } from './volunteer-Home/house-listing/house-listing.component';
+import { NPRComponent } from './volunteer-Home/npr/npr.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { PendingReqComponent } from './home/pending-req/pending-req.component';
     ForbiddenComponent,
     DeclinedReqComponent,
     ApprovedReqComponent,
-    PendingReqComponent
+    PendingReqComponent,
+    VolunteerHomeComponent,
+    HouseListingComponent,
+    NPRComponent
   ],
   imports: [
     BrowserModule,

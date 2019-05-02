@@ -10,14 +10,24 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { PendingReqComponent } from './home/pending-req/pending-req.component';
 import { DeclinedReqComponent } from './home/declined-req/declined-req.component';
 import { ApprovedReqComponent } from './home/approved-req/approved-req.component';
+import { VolunteerHomeComponent } from './volunteer-home/volunteer-home.component';
+import { HouseListingComponent } from './volunteer-Home/house-listing/house-listing.component';
+import { NPRComponent } from './volunteer-Home/npr/npr.component';
 
 export const appRoutes : Routes = [
     {
-        path:'home',component : HomeComponent,canActivate:[AuthGuard],
+        path:'ApproverHome',component : HomeComponent,canActivate:[AuthGuard],
         children:[
             {path:'pendingRequests',component:PendingReqComponent},
             {path:'declinedRequests',component:DeclinedReqComponent},
             {path:'approvedRequests',component:ApprovedReqComponent}
+        ]
+    },
+    {
+        path:'Dashboard',component : VolunteerHomeComponent,canActivate:[AuthGuard],
+        children:[
+            {path:'HouseListing',component:HouseListingComponent},
+            {path:'NPR',component:NPRComponent}
         ]
     },
     {path:'forbidden',component:ForbiddenComponent,canActivate:[AuthGuard]},

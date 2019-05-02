@@ -3,14 +3,16 @@ import { Router } from '@angular/router';
 import { UserService } from '../Shared/user.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-volunteer-home',
+  templateUrl: './volunteer-home.component.html',
+  styleUrls: ['./volunteer-home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class VolunteerHomeComponent implements OnInit {
 
   UserClaims : any;
+  
   constructor(private router:Router,private userservice:UserService) { }
+  
   ngOnInit() {
     this.userservice.getUserClaims().subscribe((data:any)=> {
       this.UserClaims = data;
@@ -19,16 +21,9 @@ export class HomeComponent implements OnInit {
     (err:any)=>{
       console.log(err);
     });
-
-    //function for approvers
-    // if(this.userservice.roleMatch(['Approver']))
-    // {
-      
-    // }
-  }
-
-  Logout() {
-    localStorage.removeItem('userToken');
-    this.router.navigate(['/Login']);
-  }
+}
+Logout() {
+  localStorage.removeItem('userToken');
+  this.router.navigate(['/Login']);
+}
 }

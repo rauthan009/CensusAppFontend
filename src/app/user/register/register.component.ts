@@ -43,7 +43,6 @@ export class RegisterComponent implements OnInit {
       }
       else {
         this.toastr.error(data.Errors[0]);
-        console.log(data.Errors[0]);
       }
     });
   }

@@ -1,6 +1,16 @@
 <nav>
   <div class="nav-wrapper">
-    <a href="#" class="brand-logo">Census App</a>
+    <ul class="brand-logo">
+        <li class="tab">
+          <a routerLink='./pendingRequests' routerLinkActive='activeLink'>Pending Requests</a>
+        </li>
+        <li class="tab">
+          <a routerLink='./declinedRequests' routerLinkActive='activeLink'>Declined</a>
+        </li>
+        <li class="tab">
+          <a routerLink='./approvedRequests' routerLinkActive='activeLink'>Approved</a>
+        </li>
+      </ul>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li><a (click)="Logout()">Logout</a></li>
     </ul>
@@ -11,17 +21,17 @@
     <div class="col s8 offset-s2">
       <div class="card grey lighten-2">
         <div class="card-tabs">
-          <ul class="tabs tabs-fixed-width tabs-transparent">
+          <!-- <ul class="tabs tabs-fixed-width tabs-transparent">
             <li class="tab">
               <a routerLink='./pendingRequests' routerLinkActive='active'>pendingRequests</a>
             </li>
             <li class="tab">
-                <a routerLink='./declinedRequests' routerLinkActive='active'>Declined</a>
+              <a routerLink='./declinedRequests' routerLinkActive='active'>Declined</a>
             </li>
             <li class="tab">
               <a routerLink='./approvedRequests' routerLinkActive='active'>Approved</a>
-          </li>
-          </ul>
+            </li>
+          </ul> -->
         </div>
         <div class="card-content white">
           <div class="row">

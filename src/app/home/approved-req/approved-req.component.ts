@@ -8,7 +8,7 @@ import { UserService } from 'src/app/Shared/user.service';
 })
 export class ApprovedReqComponent implements OnInit {
 
-  volunteerData:any;
+  volunteerData:any=[];
   constructor(private userService:UserService) { }
   loadDeclinedComponent() {
     this.userService.GetApproved().subscribe((data:any) =>{

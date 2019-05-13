@@ -34,17 +34,20 @@ export class NPRComponent implements OnInit {
     {value:2,display:'Spouse'},
     {value:3,display:'Son'},
     {value:4,display:'Daughter'},
+    {value:5,display:'Sibling'},
+    {value:6,display:'Grandson'},
+    {value:7,display:'GrandDaughter'}
   ];
 
   resetForm(){
     this.house = {
       FullName:'',
       RelationtoHead :'Self',
-      Gender :'',
-      DateOfBirth :'',
+      Gender :'Male',
+      DateOfBirth :new Date().toISOString().slice(0,10),
       IsMarried :'',
-      AgeAtMarriage :'',
-      OccupationStatus :'',
+      AgeAtMarriage :null,
+      OccupationStatus :'Employed',
       NatureOfOccupation :''
     }
   }
@@ -59,7 +62,6 @@ export class NPRComponent implements OnInit {
   }
 
   OnSubmit(form:NgForm) {
-    console.log(form.value);
     this.userservice.AddNPR(form.value).subscribe((data)=>{
       this.resetForm();
       this.toastr.success('Succefully registered');

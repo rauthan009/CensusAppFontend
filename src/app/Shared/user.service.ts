@@ -3,18 +3,18 @@ import { HttpClient,HttpResponse, HttpHeaders } from '@angular/common/http';
 import {Observable} from 'rxjs';
 // import 'rxjs/add/operator/map';
 import { User } from './user.model';
-import { Profile } from 'selenium-webdriver/firefox';
-import { element } from '@angular/core/src/render3';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserService {
 
   readonly rootUrl = 'http://localhost:64781';
   constructor(private http: HttpClient) { }
 
-  registerUser(user: User) {   
+  registerUser(user: User) { 
+    
     const body :User = {
       Email:user.Email,
       FirstName:user.FirstName,
@@ -23,6 +23,8 @@ export class UserService {
       AadharNumber:user.AadharNumber,
       Password:user.Password
     }
+
+    console.log(body);
     var reqHeader = new HttpHeaders({'No-Auth':'True'});
     return this.http.post(this.rootUrl+'/api/User/Register',body,{headers:reqHeader});
   }
@@ -64,6 +66,11 @@ export class UserService {
         return false;
       }
     });
+    return isMatch;
+  }
+
+  statusMatch(allowedStatus):boolean {
+    var isMatch = false;
     return isMatch;
   }
 

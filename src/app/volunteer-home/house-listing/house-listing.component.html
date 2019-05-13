@@ -1,29 +1,30 @@
 <form class="col s12 white" #houseListingForm="ngForm" (ngSubmit)="OnSubmit(houseListingForm)">
   <div class="row">
     <div class="input-field col s6">
-      <input class="validate" type="number" name="BuildingNumber" #BuildingNumber="ngModel" [(ngModel)] = "house.BuildingNumber">
-      <label>Building Number</label>
+      <input id="BuildingNumber" class="validate" type="text" name="BuildingNumber" #BuildingNumber="ngModel" [(ngModel)] = "house.BuildingNumber" required>
+      <label for="BuildingNumber" >House or Building Number</label>
     </div>
     <div class="input-field col s6">
-      <input class="validate" type="text" name="Address" #Address="ngModel" [(ngModel)]="house.Address">
-      <label>Address</label>
+      <input id="Address" class="validate" type="text" name="Address" #Address="ngModel" [(ngModel)]="house.Address" required >
+      <label for="Address" >Address</label>
     </div>
   </div>
 
   <div class="row">
+    <div class=" select input-field col s6">
+        <select name="State"  #State="ngModel" [(ngModel)] ="house.State" required>
+          <option name="State" *ngFor="let option of states" [value]="option.name">{{option.name}}</option>
+        </select>
+      </div>
     <div class="input-field col s6">
-      <input class="validate" type="text" name="State" #State="ngModel" [(ngModel)]="house.State">
-      <label>State</label>
-    </div>
-    <div class="input-field col s6">
-      <input class="validate" type="text" name="Name" #Name="ngModel" [(ngModel)]="house.Name">
-      <label>Full Name of Head</label>
+      <input id="Name" class="validate" type="text" name="Name" #Name="ngModel" [(ngModel)]="house.Name" required>
+      <label for="Name" >Full Name of Head</label>
     </div>
   </div>
 
   <div class="row">
     <label class="input-field" >
-      <input name="ownershipStatus" value="Owned" class="col s3" type="radio" #OwnerStatus="ngModel" [(ngModel)]="house.OwnerStatus" checked />
+      <input name="ownershipStatus" value="Owned" class="col s3" type="radio" #OwnerStatus="ngModel" checked="checked" [(ngModel)]="house.OwnerStatus" checked />
       <span>Owned</span>
     </label>
     <label>
@@ -32,8 +33,8 @@
     </label>
 
     <div class="input-field col s6">
-      <input class="validate" type="number" name="NoOfRoom" #NoOfRoom="ngModel" [(ngModel)]="house.NoOfRoom">
-      <label>Number of Rooms</label>
+      <input id="NoOfRoom" class="validate" type="number" name="NoOfRoom" #NoOfRoom="ngModel" [(ngModel)]="house.NoOfRoom" required>
+      <label for="NoOfRoom" >Number of Rooms</label>
     </div>
   </div>
 

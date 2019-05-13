@@ -24,7 +24,10 @@ export class SignInComponent implements OnInit {
       {           this.router.navigate(['/ApproverHome/pendingRequests']);
       }
       else if(this.userService.roleMatch(["Volunteer"]))
-        this.router.navigate(['/Dashboard/HouseListing']) ; 
+      {
+           this.router.navigate(['/Dashboard/HouseListing']) ; 
+      }
+        
       else
         this.router.navigate(['/forbidden']);
     },(err:HttpErrorResponse)=>{

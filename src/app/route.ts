@@ -13,6 +13,7 @@ import { ApprovedReqComponent } from './home/approved-req/approved-req.component
 import { VolunteerHomeComponent } from './volunteer-home/volunteer-home.component';
 import { HouseListingComponent } from './volunteer-Home/house-listing/house-listing.component';
 import { NPRComponent } from './volunteer-Home/npr/npr.component';
+import { DeclinedComponent } from './volunteer-home/declined/declined.component';
 
 export const appRoutes : Routes = [
     {
@@ -27,7 +28,8 @@ export const appRoutes : Routes = [
         path:'Dashboard',component : VolunteerHomeComponent,canActivate:[AuthGuard],
         children:[
             {path:'HouseListing',component:HouseListingComponent},
-            {path:'NPR',component:NPRComponent}
+            {path:'NPR',component:NPRComponent},
+            {path:'Declined',component:DeclinedComponent}
         ]
     },
     {path:'forbidden',component:ForbiddenComponent,canActivate:[AuthGuard]},

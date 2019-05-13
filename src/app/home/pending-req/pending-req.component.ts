@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/Shared/user.service';
 import { Router } from '@angular/router';
+import { Volunteer } from 'src/app/Shared/volunteer.model';
 
 @Component({
   selector: 'app-pending-req',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class PendingReqComponent implements OnInit {
 
-  volunteerData:any;
+  volunteerData:any=[];
   userId:any;
   constructor(private userService:UserService,private router:Router) { }
   

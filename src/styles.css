@@ -35,3 +35,13 @@ div.error-message i{
 .tabs .tab a.active{
     background-color: #fff !important;
 }
+
+.activeLink {
+    background: rgb(252, 242, 242) !important;
+    color: #EE6E73;
+}
+
+img {
+    width: 150px !important;
+    height: 150px;
+}

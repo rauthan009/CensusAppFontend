@@ -1,63 +1,76 @@
 <form class="col s12 white" #NPRform="ngForm" (ngSubmit)="OnSubmit(NPRform)">
+
   <div class="row">
     <div class="input-field col s6">
-      <input type="text" class="validate" name="FullName" #FullName="ngModel" [(ngModel)] = "house.FullName">
-      <label>Full Name of Person</label>
+      <input id="FullName" type="text" class="validate" name="FullName" #FullName="ngModel" [(ngModel)] = "house.FullName" required>
+      <label for="FullName" data-error="Required field">Full Name of Person</label>
+    </div>
+    <div  class=" select input-field col s6"> 
+        <select id="CensusHouseNumber" name="CensusHouseNumber"  #CensusHouseNumber="ngModel" [(ngModel)] ="house.CensusHouseNumber">                  
+          <option name="select" [value]="Select" [selected]="true">Select your House Number</option>
+          <option  name="CensusHouseNumber" *ngFor="let option of housenum" [value]="option">{{option}}</option>
+        </select>              
     </div>
   </div>
+
     <div class="row">  
         <div class=" select input-field col s6">
-            <select name="selectRelation"    #RelationtoHead="ngModel" [(ngModel)] ="house.RelationtoHead">
+            <select name="RelationtoHead"  #RelationtoHead="ngModel" [(ngModel)] ="house.RelationtoHead" required>
               <option name="RelationtoHead" *ngFor="let option of relation" [value]="option.display">{{option.display}}</option>
             </select>
           </div>
-        <label class="input-field ">
-          <input name="occupationStatus" class="col s3" type="radio"  value="Male" #Gender="ngModel" [(ngModel)] = "house.Gender" checked />
+
+        <label class="input-field col s3">
+          <input name="Gender"  type="radio"  value="Male" #Gender="ngModel" [(ngModel)] = "house.Gender" checked required/>
           <span>Male</span>
         </label>
-        <label>
-          <input name="occupationStatus" class="col s3" type="radio" value="Female"  #Gender="ngModel" [(ngModel)] = "house.Gender" />
+        <label class="input-field col s3">
+          <input name="Gender"  type="radio" value="Female"  #Gender="ngModel" [(ngModel)] = "house.Gender" required/>
           <span>Female</span>
         </label>
     </div>
+
+
     <div class="row">
       <div class="input-field col s6">
-        <input type="date" class=" datepicker" name="DateOfBirth" #DateOfBirth="ngModel" [(ngModel)] = "house.DateOfBirth">
+        <input type="date" class="validate"  name="DateOfBirth" #DateOfBirth="ngModel" [(ngModel)] = "house.DateOfBirth" required> 
       </div>
       <div class="input-field col s6">
-        <input type="text" class="validate" name="IsMarried" #IsMarried="ngModel" [(ngModel)] = "house.IsMarried">
-        <label>Current Marital Status</label>
+        <input type="text" class="validate" id="IsMarried" name="IsMarried" #IsMarried="ngModel" [(ngModel)] = "house.IsMarried" required>
+        <label for="IsMarried">Current Marital Status</label>
       </div>
     </div>
+
+
     <div class="row">
       <div class="input-field col s6">
-        <input type="number" class="validate" name="AgeAtMarriage" #AgeAtMarriage="ngModel" [(ngModel)] = "house.AgeAtMarriage">
-        <label>Age at Marriage</label>
+        <input id="Age" type="number" class="validate" name="AgeAtMarriage" #AgeAtMarriage="ngModel" [(ngModel)] = "house.AgeAtMarriage" >
+        <label for="Age" >Age at Marriage</label>
       </div>
-      <label class="input-field">
-        <input name="occupationStatus" class="col s2" type="radio"  value="Employed" #OccupationStatus="ngModel" [(ngModel)] = "house.OccupationStatus" checked />
+      <label class="input-field col s2">
+        <input name="occupationStatus"  type="radio"  value="Employed" #OccupationStatus="ngModel" [(ngModel)] = "house.OccupationStatus"  checked required/>
         <span>Employed</span>
       </label>
-      <label>
-        <input name="occupationStatus" class="col s2" type="radio" value="Self-Employed"  #OccupationStatus="ngModel" [(ngModel)] = "house.OccupationStatus" />
+      <label class="input-field col s2">
+        <input name="occupationStatus"  type="radio" value="Self-Employed"  #OccupationStatus="ngModel" [(ngModel)] = "house.OccupationStatus" required/>
         <span>Self-employed</span>
       </label>
-      <label>
-        <input name="occupationStatus" class="col s2" type="radio" value="Student" #OccupationStatus="ngModel" [(ngModel)] = "house.OccupationStatus" />
+      <label class="input-field col s2">
+        <input name="occupationStatus" type="radio" value="Student" #OccupationStatus="ngModel" [(ngModel)] = "house.OccupationStatus" required/>
         <span>Student</span>
       </label>
 
     </div>
     <div class="row">
       <div class="input-field col s8">
-        <input type="text" class="validate"  type="text" name="NatureOfOccupation" #NatureOfOccupation="ngModel" [(ngModel)] = "house.NatureOfOccupation">
-        <label>Nature of Occupation Industry</label>
+        <input id="NOI" type="text" class="validate"  type="text" name="NatureOfOccupation" #NatureOfOccupation="ngModel" [(ngModel)] = "house.NatureOfOccupation">
+        <label for="NOI" >Nature of Occupation Industry</label>
       </div>
     </div>
 
     <div class="row">
         <div class="input-field col s12">
-          <button class="waves-effect waves-light submitBtn btn btn-large" type="submit">Submit</button>
+          <button [disabled]="!NPRform.valid" class="waves-effect waves-light submitBtn btn btn-large"class="waves-effect waves-light submitBtn btn btn-large" type="submit">Submit</button>
         </div>
       </div>
 </form>

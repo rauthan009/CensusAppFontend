@@ -8,7 +8,7 @@ import { UserService } from 'src/app/Shared/user.service';
 })
 export class DeclinedReqComponent implements OnInit {
 
-  volunteerData:any;
+  volunteerData:any=[];
 
   constructor(private userService:UserService,) { }
   loadDeclinedComponent() {

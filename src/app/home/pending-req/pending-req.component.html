@@ -1,7 +1,10 @@
+<div *ngIf="volunteerData.length===0">
+    <marquee>No Pending Requests Left</marquee>
+</div>
 <div class="row card" *ngFor="let item of volunteerData" >
   <div class="col s4">
     <div class="card-image">
-      <img src="../../../assets/img/403.png">{{item.ProfilePic}}
+      <img [src]="item.ProfilePic">
       <span class="card-title" >{{item.Name}}</span>
     </div>
   </div>

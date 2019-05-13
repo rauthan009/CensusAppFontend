@@ -23,6 +23,10 @@ import { PendingReqComponent } from './home/pending-req/pending-req.component';
 import { VolunteerHomeComponent } from './volunteer-home/volunteer-home.component';
 import { HouseListingComponent } from './volunteer-Home/house-listing/house-listing.component';
 import { NPRComponent } from './volunteer-Home/npr/npr.component';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { DeclinedComponent } from './volunteer-home/declined/declined.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,8 @@ import { NPRComponent } from './volunteer-Home/npr/npr.component';
     PendingReqComponent,
     VolunteerHomeComponent,
     HouseListingComponent,
-    NPRComponent
+    NPRComponent,
+    DeclinedComponent
   ],
   imports: [
     BrowserModule,
@@ -47,8 +52,9 @@ import { NPRComponent } from './volunteer-Home/npr/npr.component';
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     ToastrModule.forRoot(),
-    BrowserAnimationsModule
-
+    BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule
   ],
   providers: [UserService,AuthGuard,{
     provide: HTTP_INTERCEPTORS,

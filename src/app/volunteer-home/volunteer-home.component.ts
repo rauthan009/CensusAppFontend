@@ -10,13 +10,16 @@ import { UserService } from '../Shared/user.service';
 export class VolunteerHomeComponent implements OnInit {
 
   UserClaims : any;
-  
+  statshow:boolean= true;
   constructor(private router:Router,private userservice:UserService) { }
   
   ngOnInit() {
     this.userservice.getUserClaims().subscribe((data:any)=> {
       this.UserClaims = data;
-      console.log(data);
+      if(this.UserClaims.Status !== "approved") {
+        this.statshow= false;
+        this.router.navigateByUrl('Dashboard/Declined');
+      }
     },
     (err:any)=>{
       console.log(err);

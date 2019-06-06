@@ -13,7 +13,6 @@ export class DeclinedReqComponent implements OnInit {
   constructor(private userService:UserService,) { }
   loadDeclinedComponent() {
     this.userService.GetDeclined().subscribe((data:any) =>{
-      console.log(data);
       this.volunteerData = data;
     },
     (err:any)=>{

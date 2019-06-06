@@ -44,7 +44,7 @@
 
     <div class="row">
       <div class="input-field col s6">
-        <input id="Age" type="number" class="validate" name="AgeAtMarriage" #AgeAtMarriage="ngModel" [(ngModel)] = "house.AgeAtMarriage" >
+        <input id="Age" type="text" (keypress)="numberOnly($event)" class="validate" name="AgeAtMarriage" #AgeAtMarriage="ngModel" [(ngModel)] = "house.AgeAtMarriage" >
         <label for="Age" >Age at Marriage</label>
       </div>
       <label class="input-field col s2">

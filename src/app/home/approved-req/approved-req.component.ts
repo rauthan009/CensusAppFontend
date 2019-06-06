@@ -12,7 +12,6 @@ export class ApprovedReqComponent implements OnInit {
   constructor(private userService:UserService) { }
   loadDeclinedComponent() {
     this.userService.GetApproved().subscribe((data:any) =>{
-      console.log(data);
       this.volunteerData = data;
     },
     (err:any)=>{

@@ -17,7 +17,7 @@
         </select>
       </div>
     <div class="input-field col s6">
-      <input id="Name" class="validate" type="text" name="Name" #Name="ngModel" [(ngModel)]="house.Name" required>
+      <input id="Name" class="validate" type="text" name="Name" minlength="4" #Name="ngModel" [(ngModel)]="house.Name" required>
       <label for="Name" >Full Name of Head</label>
     </div>
   </div>
@@ -33,14 +33,14 @@
     </label>
 
     <div class="input-field col s6">
-      <input id="NoOfRoom" class="validate" type="number" name="NoOfRoom" #NoOfRoom="ngModel" [(ngModel)]="house.NoOfRoom" required>
+      <input id="NoOfRoom" class="validate" type="text" (keypress)="numberOnly($event)" name="noOfRoomsPattern" #NoOfRoom="ngModel" [(ngModel)]="house.NoOfRoom" required>
       <label for="NoOfRoom" >Number of Rooms</label>
     </div>
   </div>
 
   <div class="row">
     <div class="input-field col s12">
-      <button class="waves-effect waves-light submitBtn btn btn-large" type="submit">Submit</button>
+      <button  [disabled]="!houseListingForm.valid" class="waves-effect waves-light submitBtn btn btn-large" type="submit">Submit</button>
     </div>
   </div>
 

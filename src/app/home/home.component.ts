@@ -14,17 +14,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.userservice.getUserClaims().subscribe((data:any)=> {
       this.UserClaims = data;
-      console.log(data);
     },
     (err:any)=>{
       console.log(err);
     });
-
-    //function for approvers
-    // if(this.userservice.roleMatch(['Approver']))
-    // {
-      
-    // }
   }
 
   Logout() {

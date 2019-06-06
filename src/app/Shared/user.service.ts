@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpResponse, HttpHeaders } from '@angular/common/http';
-import {Observable} from 'rxjs';
-// import 'rxjs/add/operator/map';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from './user.model';
 
 @Injectable({
@@ -31,25 +29,23 @@ export class UserService {
 
   GetPendingUser() {
     var reqHeader = new HttpHeaders({'Authorization':'bearer '+localStorage.getItem('userToken')});
-    return this.http.get(this.rootUrl+'/api/forapprover',{headers:reqHeader});
+    return this.http.get(this.rootUrl+'/api/GetPendingUsers',{headers:reqHeader});
   }
 
   GetDeclined() {
     var reqHeader = new HttpHeaders({'Authorization':'bearer '+localStorage.getItem('userToken')});
-    return this.http.get(this.rootUrl+'/api/forapprover3',{headers:reqHeader});
+    return this.http.get(this.rootUrl+'/api/GetDeclinedUsers',{headers:reqHeader});
   }
 
   GetApproved() {
     var reqHeader = new HttpHeaders({'Authorization':'bearer '+localStorage.getItem('userToken')});
-    return this.http.get(this.rootUrl+'/api/forapprover2',{headers:reqHeader});
+    return this.http.get(this.rootUrl+'/api/GetApprovedUsers',{headers:reqHeader});
   }
 
   userAuthentication(Email,Password) {
     var data = "username=" + Email+"&password="+Password+"&grant_type=password";
     var reqHeader =  new HttpHeaders({'Content-Type':'application/json','No-Auth':'True'}); 
-    var result= this.http.post(this.rootUrl+'/token',data,{headers:reqHeader});
-    console.log(result)
-    return result;
+    return this.http.post(this.rootUrl+'/token',data,{headers:reqHeader});
   }
 
   getUserClaims() {

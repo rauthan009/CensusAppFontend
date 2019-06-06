@@ -18,8 +18,10 @@ class StatesOfIndia {
 
 export class HouseListingComponent implements OnInit {
 
+  noOfRoomsPattern = '^[0-9]';
   house:House;
-  states:StatesOfIndia[] = [{"code": "AN","name": "Andaman and Nicobar Islands"},
+  states:StatesOfIndia[] = [
+  {"code": "AN","name": "Andaman and Nicobar Islands"},
   {"code": "AP","name": "Andhra Pradesh"},
   {"code": "AR","name": "Arunachal Pradesh"},
   {"code": "AS","name": "Assam"},
@@ -54,7 +56,8 @@ export class HouseListingComponent implements OnInit {
   {"code": "TR","name": "Tripura"},
   {"code": "UK","name": "Uttarakhand"},
   {"code": "UP","name": "Uttar Pradesh"},
-  {"code": "WB","name": "West Bengal"}];
+  {"code": "WB","name": "West Bengal"}
+];
 
   constructor(private userService: UserService,private toastr: ToastrService) { }
 
@@ -65,17 +68,30 @@ export class HouseListingComponent implements OnInit {
       State:'Delhi',
       Name:'',
       OwnerStatus:'Owned',
-      NoOfRoom:''
+      NoOfRoom:null
     }
-  }
+  }   
   ngOnInit() {
     this.resetForm();
   }
   OnSubmit(form:NgForm) {
-    this.userService.createHouseListing(form.value).subscribe((data)=>{
-      this.resetForm();
-      this.toastr.success('House succefully Listed');
+    this.userService.createHouseListing(form.value).subscribe((data:any)=>{
+      console.log(data);
+      if (data === 'Success') {
+        this.resetForm();
+        this.toastr.success('House succefully Listed');
+      } else {
+        this.toastr.error(data)
+      }
     });
   }
 
+  
+  numberOnly(event:any): boolean {
+    const charCode = (event.which) ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
+  }
 }
